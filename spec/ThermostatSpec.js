@@ -50,9 +50,32 @@ it('can switch power save mode off', function() {
   });
 
   it('can reset temperature to 20', function() {
+    thermostat.up()
     thermostat.reset()
       expect(thermostat.getTemperature()).toEqual(20);
     });
+
+    it('when the temperature is below 18 degrees, it is low-usage', function() {
+      for (var i = 0; i < 3; i++) {
+        thermostat.down();
+      }
+      expect(thermostat.energyUsage()).toEqual('low-usage');
+    });
+
+    it('when temp between 18 and 25 is considered medium-usage', function() {
+      expect(thermostat.energyUsage()).toEqual('medium-usage');
+    });
+
+
+    it('it is considered high-usage when it is over 25', function() {
+      thermostat.powerSavingMode = false;
+      for (var i = 0; i < 6; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.energyUsage()).toEqual('high-usage');
+    });
+
+
 
 
 
