@@ -4,18 +4,30 @@ $(document).ready(function() {
 
   $('#temperature-up').click(function(){
     thermostat.up();
-    updateTemperature()
-  })
+    updateTemperature();
+  });
 
   $('#temperature-down').click(function(){
     thermostat.down();
-    updateTemperature()
-  })
+    updateTemperature();
+  });
 
   $('#temperature-reset').click(function(){
     thermostat.reset();
     updateTemperature();
-  })
+  });
+
+  $('#powersaving-on').click(function(){
+    thermostat.switchPowerSavingModeOn();
+    $('#powersaving-status').text('on')
+    updateTemperature();
+  });
+
+  $('#powersaving-off').click(function(){
+    thermostat.switchPowerSavingModeOff();
+    $('#powersaving-status').text('off')
+    updateTemperature();
+  });
 
 function updateTemperature(){
   $('#temperature').text(thermostat.temperature);
