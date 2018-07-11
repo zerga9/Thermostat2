@@ -19,5 +19,28 @@ describe("Thermostat", function(){
     expect(thermostat.getTemperature()).toEqual(19);
   })
 
+  it("has maximum temperature of 25", function(){
+    for (var i = 0; i < 6; i++) {
+    thermostat.up();
+  }
+  expect(thermostat.getTemperature()).toEqual(25);
+});
+
+it("has mimimum temperature of 10", function(){
+  for (var i = 0; i < 6; i++) {
+  thermostat.up();
+}
+expect(thermostat.getTemperature()).toEqual(25);
+});
+
+it('has a minimum of 10 degrees', function() {
+  for (var i = 0; i < 11; i++) {
+    thermostat.down();
+  }
+  expect(thermostat.getTemperature()).toEqual(10);
+});
+
+
+
 
 })
