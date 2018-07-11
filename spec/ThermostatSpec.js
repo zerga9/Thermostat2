@@ -44,6 +44,11 @@ it('has power saving mode on by default', function() {
   expect(thermostat.isPowerSavingModeOn()).toBe(true);
 });
 
+it('can switch power save mode off', function() {
+    thermostat.switchPowerSavingModeOff();
+    expect(thermostat.isPowerSavingModeOn()).toBe(false);
+  });
+
 
 
 
