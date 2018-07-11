@@ -42,11 +42,12 @@ function displayWeather(city) {
   $('#current-temperature').text(data.main.temp);
   })
  }
- displayWeather('London')
-    $('#select-city').submit(function(event) {
-      event.preventDefault();
-      var city = $('#current-city').val();
-      $('#chosen-city').text(city);
-      displayWeather(city);
+ displayWeather('London');
+
+$('#select-city').submit(function(event) {
+  event.preventDefault();
+  var city = $('#current-city').val();
+  $('#chosen-city').text(city);
+  displayWeather(city);
   });
 });
