@@ -49,6 +49,11 @@ it('can switch power save mode off', function() {
     expect(thermostat.isPowerSavingModeOn()).toBe(false);
   });
 
+  it('can reset temperature to 20', function() {
+    thermostat.reset()
+      expect(thermostat.getTemperature()).toEqual(20);
+    });
+
 
 
 
